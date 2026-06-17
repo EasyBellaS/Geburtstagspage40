@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gartenparty Einladung</title>
     <style>
+        :root {
+            --primary-green: #2e7d32;
+            --light-green: #f1f8e9;
+            --accent-yellow: #fff9c4;
+            --warm-brown: #795548;
+            --coral: #ff7043;
+            --sky-blue: #e0f2f1;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #e0f2f1 0%, #fff9c4 100%);
+            background: linear-gradient(135deg, var(--sky-blue) 0%, var(--accent-yellow) 100%);
             color: #333;
             display: flex;
             justify-content: center;
@@ -15,7 +24,51 @@
             min-height: 100vh;
             margin: 0;
             padding: 20px;
+            transition: background 0.3s ease, color 0.3s ease;
         }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1a3a3a 0%, #4a4a2a 100%);
+                color: #f0f0f0;
+            }
+            
+            .container {
+                background-color: #2a2a2a;
+                color: #f0f0f0;
+            }
+            
+            .info-box {
+                background-color: #1f3a1f;
+                border-left-color: #66bb6a;
+            }
+
+            .info-box a {
+                color: #66bb6a;
+                border-bottom-color: #66bb6a;
+            }
+
+            .info-box a:hover {
+                color: #ff7043;
+                border-bottom-color: #ff7043;
+            }
+            
+            .hinweis {
+                background-color: #3a2a1f;
+                color: #f0f0f0;
+            }
+
+            .gift-section {
+                background-color: #3a2a1a;
+                border-left-color: #ff7043;
+            }
+
+            .footer {
+                border-top-color: #444;
+                color: #66bb6a;
+            }
+        }
+
         .container {
             background-color: white;
             padding: 40px;
@@ -23,50 +76,140 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             max-width: 700px;
             width: 100%;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         h1 {
-            color: #2e7d32;
+            color: var(--primary-green);
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+            font-size: 2.5em;
         }
+
         .subtitle {
             text-align: center;
             color: #666;
             font-style: italic;
             margin-bottom: 30px;
+            font-size: 1.3em;
         }
+
         .info-box {
-            background-color: #f1f8e9;
+            background-color: var(--light-green);
             border-left: 5px solid #8bc34a;
             padding: 15px;
             margin-bottom: 25px;
             border-radius: 0 8px 8px 0;
+            transition: background-color 0.3s ease;
         }
+
         .info-box p {
             margin: 5px 0;
+            font-size: 1.1em;
+            line-height: 1.6;
         }
+
+        .info-box a {
+            color: var(--primary-green);
+            text-decoration: none;
+            border-bottom: 2px solid #8bc34a;
+            transition: all 0.3s ease;
+        }
+
+        .info-box a:hover {
+            color: var(--coral);
+            border-bottom-color: var(--coral);
+        }
+
         .hinweis {
-            font-size: 0.9em;
-            color: #795548;
+            font-size: 0.95em;
+            color: var(--warm-brown);
             background-color: #efebe9;
             padding: 12px;
             border-radius: 6px;
             margin-bottom: 25px;
             line-height: 1.4;
+            transition: background-color 0.3s ease;
         }
+
+        .countdown {
+            background-color: #fff3e0;
+            border-left: 5px solid var(--coral);
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+            text-align: center;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .countdown {
+                background-color: #3a2a1a;
+                border-left-color: var(--coral);
+            }
+        }
+
+        #countdownText {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #c62828;
+            margin: 0;
+        }
+
+        .gift-section {
+            background-color: #fff3e0;
+            border-left: 5px solid var(--coral);
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95em;
+            transition: background-color 0.3s ease;
+        }
+
+        .gift-section p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .gift-section a {
+            color: var(--coral);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid var(--coral);
+            transition: all 0.3s ease;
+        }
+
+        .gift-section a:hover {
+            color: var(--primary-green);
+            border-bottom-color: var(--primary-green);
+        }
+
         .form-container {
             margin-bottom: 25px;
         }
+
         iframe {
             width: 100%;
             border: none;
             border-radius: 6px;
         }
+
         .deadline {
             text-align: center;
             font-weight: bold;
             color: #c62828;
             margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            color: var(--primary-green);
+            font-style: italic;
+            font-size: 0.95em;
+            transition: border-top-color 0.3s ease, color 0.3s ease;
         }
     </style>
 </head>
@@ -78,7 +221,7 @@
 
     <div class="info-box">
         <p><strong>Wann:</strong> ab 17:30 Uhr</p>
-        <p><strong>Wo:</strong> Tulpenstraße 12, 51427 Bergisch Gladbach</p>
+        <p><strong>Wo:</strong> <a href="https://www.google.com/maps/search/Tulpenstraße+12,+51427+Bergisch+Gladbach" target="_blank" rel="noopener">Tulpenstraße 12, 51427 Bergisch Gladbach 📍</a></p>
     </div>
 
     <div class="hinweis">
@@ -86,12 +229,48 @@
         Die Party ist eigentlich "kinderfrei" geplant, damit alle Erwachsenen mal richtig abschalten können. Wer es jedoch absolut nicht hinbekommt, eine Betreuung zu finden, darf seine Kids natürlich mitbringen.
     </div>
 
+    <div class="countdown">
+        <p id="countdownText"></p>
+    </div>
+
+    <div class="gift-section">
+        <p><strong>Falls ihr noch Ideen benötigt:</strong> 😊</p>
+        <p>Hier ist eine kleine <a href="https://www.wishbob.com/zcutqgmoxd" target="_blank" rel="noopener">Geschenkliste</a> – aber bitte: Es muss mir natürlich keiner etwas schenken! Der wichtigste Geschenk seid ihr selbst! 🎉</p>
+    </div>
+
     <div class="deadline">Bitte antwortet bis Samstag, 20.07.2026!</div>
 
     <div class="form-container">
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdH5ySNpc3vTJfJ6Cb-SfGsBefcKAKQigOBWvGIpRTfGHnKgQ/viewform?embedded=true" height="687" frameborder="0" marginheight="0" marginwidth="0">Wird nicht unterstützt</iframe>
     </div>
+
+    <footer class="footer">
+        <p>Wir freuen uns auf einen wunderschönen Tag mit euch! 🌻🎉</p>
+    </footer>
 </div>
+
+<script>
+    function updateCountdown() {
+        const partyDate = new Date('2026-07-20T17:30:00').getTime();
+        const now = new Date().getTime();
+        const distance = partyDate - now;
+        
+        if (distance < 0) {
+            document.getElementById('countdownText').innerHTML = 'Die Party hat begonnen! 🎉';
+            return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        
+        document.getElementById('countdownText').innerHTML = 
+            `⏰ Noch ${days} Tage, ${hours} Stunden und ${minutes} Minuten!`;
+        
+        setTimeout(updateCountdown, 60000); // Update alle 60 Sekunden
+    }
+    updateCountdown();
+</script>
 
 </body>
 </html>
